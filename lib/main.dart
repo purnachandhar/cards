@@ -5,6 +5,7 @@ import 'package:card_poc/controllers/app_controller.dart';
 import 'package:card_poc/controllers/home_controller.dart';
 import 'package:card_poc/controllers/payment_controller.dart';
 import 'package:card_poc/controllers/save_the_date_controller.dart';
+import 'package:card_poc/controllers/templet_record_controller.dart';
 import 'package:card_poc/controllers/user_details_controller.dart';
 import 'package:card_poc/views/splash/splash_screen.dart';
 import 'package:card_poc/views/video_templets/video_templet_one.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
     Get.put(UserDetailsController());
     Get.put(SaveTheDateController());
     Get.put(HomeController());
+
     Get.put(PaymentController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
