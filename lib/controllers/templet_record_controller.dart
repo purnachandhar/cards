@@ -16,7 +16,7 @@ class TempletRecodingController extends GetxController {
   static TempletRecodingController instance = Get.find();
 
   ScreenRecorderController controller = ScreenRecorderController(
-      pixelRatio: 1.8);
+      pixelRatio: 2.5);
 
   final FlutterFFmpeg _flutterFFmpeg = FlutterFFmpeg();
 

@@ -14,6 +14,7 @@ class RecordVideoTemplet extends StatelessWidget {
     Get.put(TempletRecodingController());
     return Scaffold(
       body: Container(
+        color: Colors.transparent,
         child: Center(
           child: ScreenRecorder(
               height: 700,
