@@ -15,6 +15,13 @@ class UserDetailsController extends GetxController {
   TextEditingController location = TextEditingController();
 
 
+  RxString selectedGender = "Boy's Side (Groom)".obs;
+
+  void getEventSide(String value){
+    selectedGender.value = value;
+    print("from the controller ${selectedGender.value}");
+  }
+
   @override
   void onReady() {
     // TODO: implement onReady
@@ -34,7 +41,7 @@ class UserDetailsController extends GetxController {
       "date": date.text.trim(),
       "place": place.text.trim(),
       "location": location.text.trim(),
-
+      "selectedGender":selectedGender
     });
     Get.back();
   }

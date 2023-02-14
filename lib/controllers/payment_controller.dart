@@ -117,8 +117,6 @@ class PaymentController extends GetxController{
 
    });
   }
-
-
   @override
   void dispose() {
     // TODO: implement dispose

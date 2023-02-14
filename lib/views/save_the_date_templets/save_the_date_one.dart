@@ -44,101 +44,100 @@ class _SaveTheDateOneState extends State<SaveTheDateOne> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              RepaintBoundary(
-                key: saveTheDateController.genKey,
-                child: Container(
-                  width: width,
-                  height: height,
-                  child: Stack(alignment: Alignment.center, children: [
-                    Image.network(
-                      "https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg",
-                      fit: BoxFit.fill,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Invitation",
-                          style: GoogleFonts.greatVibes(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 85,
-                              color: Colors.amberAccent),
-                        ),
-                        Text(
-                          "save the date",
-                          style: GoogleFonts.gothicA1(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 35,
-                              color: Colors.amberAccent,
-                              letterSpacing: 6),
-                        ),
-                        Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "${saveTheDateController.userdata.read('brideName') == null ? "${saveTheDateController.brideName}" : "${saveTheDateController.userdata.read('brideName')}"}",
-                                  style: GoogleFonts.greatVibes(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 35,
-                                      color: Colors.amberAccent),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            RepaintBoundary(
+              key: saveTheDateController.genKey,
+              child: Container(
+                width: width,
+                height: height,
+                child: Stack(alignment: Alignment.center, children: [
+                  Image.network(
+                    "https://i.pinimg.com/736x/cc/f5/7f/ccf57f70756dd84d84f6db7d44330e63.jpg",
+                    fit: BoxFit.fill,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Invitation",
+                        style: GoogleFonts.greatVibes(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 85,
+                            color: Colors.amberAccent),
+                      ),
+                      Text(
+                        "save the date",
+                        style: GoogleFonts.gothicA1(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 35,
+                            color: Colors.amberAccent,
+                            letterSpacing: 6),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${saveTheDateController.userdata.read('brideName') == null
+                                    ? "${saveTheDateController.brideName}"
+                                    : userDetailsController.selectedGender.value != "Boy's Side (Groom)"?"${saveTheDateController.userdata.read('brideName')}": "${saveTheDateController.userdata.read('groomName')}"}",
+                                style: GoogleFonts.greatVibes(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 35,
+                                    color: Colors.amberAccent),
+                              ),
+                              Text(
+                                "&",
+                                style: GoogleFonts.greatVibes(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 35,
+                                    color: Colors.amberAccent
                                 ),
-                                Text(
-                                  "&",
-                                  style: GoogleFonts.greatVibes(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 35,
-                                      color: Colors.amberAccent),
-                                ),
-                                Text(
-                                  "${saveTheDateController.userdata.read('groomName') == null
-                                      ? "${saveTheDateController.groomName}"
-                                      :"${saveTheDateController.userdata.read('groomName')}"}",
-                                  style: GoogleFonts.greatVibes(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 35,
-                                      color: Colors.amberAccent),
-                                ),
-                              ],
-                            )),
-                        Text(
-                          "TOGETHER WITH THIRE LOVING FAMILES",
-                          style: GoogleFonts.gothicA1(
-                              fontWeight: FontWeight.w300,
-                              fontSize: 20,
-                              color: Colors.amberAccent),
-                        ),
-                        Text(
-                          "${saveTheDateController.userdata.read('date') == null
-                              ?"${saveTheDateController.date}"
-                              :"${saveTheDateController.userdata.read('date')}"}",
-                          style: GoogleFonts.gothicA1(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Colors.amberAccent),
-                        ),
-                        Text(
-                          "${saveTheDateController.userdata.read('place') == null
-                              ?"${saveTheDateController.place}"
-                              :"${saveTheDateController.userdata.read('place')}"}",
-                          style: GoogleFonts.gothicA1(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Colors.amberAccent),
-                        ),
-                      ],
-                    ),
-                  ]),
-                ),
+                              ),
+                              Text(
+                                "${saveTheDateController.userdata.read('groomName') == null
+                                    ? "${saveTheDateController.groomName}"
+                                    : userDetailsController.selectedGender.value == "Boy's Side (Groom)"?"${saveTheDateController.userdata.read('brideName')}": "${saveTheDateController.userdata.read('groomName')}"}",
+                                style: GoogleFonts.greatVibes(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 35,
+                                    color: Colors.amberAccent),
+                              ),
+                            ],
+                          )),
+                      Text(
+                        "TOGETHER WITH THIRE LOVING FAMILES",
+                        style: GoogleFonts.gothicA1(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 20,
+                            color: Colors.amberAccent),
+                      ),
+                      Text(
+                        "${saveTheDateController.userdata.read('date') == null ? "${saveTheDateController.date}" : "${saveTheDateController.userdata.read('date')}"}",
+                        style: GoogleFonts.gothicA1(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.amberAccent),
+                      ),
+                      Text(
+                        "${saveTheDateController.userdata.read('place') == null ? "${saveTheDateController.place}" : "${saveTheDateController.userdata.read('place')}"}",
+                        style: GoogleFonts.gothicA1(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.amberAccent),
+                      ),
+                    ],
+                  ),
+                ]),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        /*floatingActionButton: Row(
+      ),
+      /*floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             InkWell(
@@ -169,6 +168,7 @@ class _SaveTheDateOneState extends State<SaveTheDateOne> {
               ),
             ),
           ],
-        )*/);
+        )*/
+    );
   }
 }

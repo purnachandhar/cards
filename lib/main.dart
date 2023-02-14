@@ -1,11 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:card_poc/constains/controllers.dart';
 import 'package:card_poc/constains/firebase.dart';
+import 'package:card_poc/controllers/admob_controller.dart';
 import 'package:card_poc/controllers/app_controller.dart';
 import 'package:card_poc/controllers/home_controller.dart';
 import 'package:card_poc/controllers/payment_controller.dart';
 import 'package:card_poc/controllers/save_the_date_controller.dart';
 import 'package:card_poc/controllers/templet_record_controller.dart';
+import 'package:card_poc/controllers/templets_controller.dart';
+import 'package:card_poc/controllers/unity_ad_controller.dart';
 import 'package:card_poc/controllers/user_details_controller.dart';
 import 'package:card_poc/views/splash/splash_screen.dart';
 import 'package:card_poc/views/video_templets/video_templet_one.dart';
@@ -40,7 +43,9 @@ class MyApp extends StatelessWidget {
     Get.put(UserDetailsController());
     Get.put(SaveTheDateController());
     Get.put(HomeController());
-
+    Get.put(TempletsController());
+    Get.put(AdMobController());
+    Get.put(UnityAdController());
     Get.put(PaymentController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

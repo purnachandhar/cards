@@ -192,7 +192,7 @@ class _VideoTempletOneState extends State<VideoTempletOne> {
                   //   },
                   //   child: Text("Stop"),
                   // ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () async {
                       controller.stop();
                       var gif = await controller.export();

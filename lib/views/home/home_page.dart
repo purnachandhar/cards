@@ -30,7 +30,10 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: Container(
+      body: CardsHomePage(),
+    );
+  }
+/*Container(
         width: MediaQuery
             .of(context)
             .size
@@ -56,10 +59,7 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
+      )*/
   Widget _buildBottomBar() {
     return Obx(() {
       return CustomAnimatedBottomBar(

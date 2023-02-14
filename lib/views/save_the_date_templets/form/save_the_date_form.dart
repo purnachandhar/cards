@@ -10,8 +10,6 @@ import 'package:get_storage/get_storage.dart';
 
 
 class SaveTheDateForm extends StatefulWidget {
-
-
   @override
   _SaveTheDateFormState createState() => _SaveTheDateFormState();
 }
@@ -25,32 +23,73 @@ class _SaveTheDateFormState extends State<SaveTheDateForm> {
   // TextEditingController locationController= TextEditingController();
 
 
+  String _selectedGender = 'Boy Side';
 
   @override
   Widget build(BuildContext context) {
+
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Details"),
+        backgroundColor: primaryColor,
+      ),
         body: SingleChildScrollView(
           child: Container(
-            color: Colors.yellow.shade200,
             width: width,
             height: height,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        leading: Radio<String>(
+                          value: "Boy's Side (Groom)",
+                          groupValue: _selectedGender,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedGender = value!;
+                              //print("$_selectedGender");
+                              userDetailsController.getEventSide(_selectedGender);
+                            });
+                          },
+                        ),
+                        title: const Text("Boy's Side (Groom)"),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListTile(
+                        leading: Radio<String>(
+                          value: "Girl's Side (Bride)",
+                          groupValue: _selectedGender,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedGender = value!;
+                              // print("$_selectedGender");
+                              userDetailsController.getEventSide(_selectedGender);
+                            });
+                          },
+                        ),
+                        title: const Text("Girl's Side (Bride)"),
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller:  userDetailsController.brideName,
-                    decoration: InputDecoration(hintText: "BrideName"),
+                    controller:  userDetailsController.groomName,
+                    decoration: InputDecoration(hintText: "GroomName"),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    controller: userDetailsController.groomName,
-                    decoration: InputDecoration(hintText: "GroomName"),
+                    controller: userDetailsController.brideName,
+                    decoration: InputDecoration(hintText: "BrideName"),
                   ),
                 ),
                 Padding(
@@ -84,6 +123,7 @@ class _SaveTheDateFormState extends State<SaveTheDateForm> {
                         saveTheDateController.userdata.write("date", userDetailsController.date.text);
                         saveTheDateController.userdata.write("place", userDetailsController.place.text);
                         saveTheDateController.userdata.write("location", userDetailsController.location.text);
+                        saveTheDateController.userdata.write("selectedGender", userDetailsController.selectedGender.value);
                         // Get.back();
                         Get.to(HomePage());
                       });
@@ -95,7 +135,11 @@ class _SaveTheDateFormState extends State<SaveTheDateForm> {
                     child: Container(
                       width: width/2,
                       height: height/14,
-                      color: Colors.brown,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      
                       child: Center(
                         child: Text(
                           "Save",

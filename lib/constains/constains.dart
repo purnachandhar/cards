@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 // import 'package:get_storage/get_storage.dart';
@@ -24,3 +25,12 @@ final Color redColor = Color(0xffFF6464);
 
 String paymentKeyId = "rzp_test_hDGO95DKN21o3i";
 String paymentKeySecret = "jRCRFXzrI3kbZFQ0e5x2jNDb";
+
+TextStyle myFonts =  GoogleFonts.montserrat(
+fontSize: 14,
+fontWeight: FontWeight.w400,
+color: Colors.black);
+
+
+//app id : ca-app-pub-2347111657897876~6666272395
+//unit add banner : ca-app-pub-2347111657897876/9100864044
